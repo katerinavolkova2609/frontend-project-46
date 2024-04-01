@@ -8,5 +8,10 @@ install:
 	npm ci
 
 make lint:
-	npx eslint
+	npx eslint .
 
+test:
+	npx -n --experimental-vm-modules jest
+	
+test-coverage:
+	npx jest --coverage

@@ -17,9 +17,9 @@ const genDiff = (arr) => {
       acc[key] = "unchanged";
     }
     if (
-      Object.hasOwn(obj1, key) &&
-      Object.hasOwn(obj2, key) &&
-      obj1[key] !== obj2[key]
+      Object.hasOwn(obj1, key)
+      && Object.hasOwn(obj2, key)
+      && obj1[key] !== obj2[key]
     ) {
       acc[key] = "changed";
     }
