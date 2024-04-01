@@ -1,4 +1,4 @@
-import _ from "lodash";
+import _ from 'lodash';
 
 const genDiff = (arr) => {
   const [obj1, obj2] = arr;
@@ -8,20 +8,20 @@ const genDiff = (arr) => {
 
   const result = commonKeys.reduce((acc, key) => {
     if (!Object.hasOwn(obj2, key)) {
-      acc[key] = "deleted";
+      acc[key] = 'deleted';
     }
     if (!Object.hasOwn(obj1, key)) {
-      acc[key] = "added";
+      acc[key] = 'added';
     }
     if (obj1[key] === obj2[key]) {
-      acc[key] = "unchanged";
+      acc[key] = 'unchanged';
     }
     if (
       Object.hasOwn(obj1, key)
       && Object.hasOwn(obj2, key)
       && obj1[key] !== obj2[key]
     ) {
-      acc[key] = "changed";
+      acc[key] = 'changed';
     }
     return acc;
   }, {});
@@ -33,18 +33,19 @@ const stringify = (data) => {
   const keys = Object.keys(compareObj);
   const collOfStrings = keys.map((key) => {
     switch (compareObj[key]) {
-      case "deleted":
+      case 'deleted':
         return `  - ${key}: ${obj1[key]}\n`;
-      case "added":
+      case 'added':
         return `  + ${key}: ${obj2[key]}\n`;
-      case "unchanged":
+      case 'unchanged':
         return `    ${key}: ${obj1[key]}\n`;
-      case "changed":
+      case 'changed':
         return `  - ${key}: ${obj1[key]}\n  + ${key}: ${obj2[key]}\n`;
+      default:
+        throw new Error('Unknown format');
     }
-    return;
   });
-  const result = collOfStrings.join("");
+  const result = collOfStrings.join('');
   return `{\n${result}}`;
 };
 
