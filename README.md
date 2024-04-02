@@ -5,5 +5,8 @@
 
 play demo
 
+.json
 [![asciicast](https://asciinema.org/a/649650.svg)](https://asciinema.org/a/649650)
 
+.yaml
+[![asciicast](https://asciinema.org/a/650299.svg)](https://asciinema.org/a/650299)
