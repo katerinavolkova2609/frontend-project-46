@@ -10,14 +10,14 @@ test('genDiff, .json', () => {
   expect(
     stringify(
       genDiff(parseFiles('__fixtures__/file1.json', '__fixtures__/file2.json')),
-    ),
-  ).toEqual(result);
+    ).toEqual(result),
+  );
 });
 
 test('genDiff, .yaml', () => {
-    expect(
-      stringify(
-        genDiff(parseFiles('__fixtures__/file1.yaml', '__fixtures__/file2.yaml')),
-      ),
-    ).toEqual(result);
-  });
+  expect(
+    stringify(
+      genDiff(parseFiles('__fixtures__/file1.yaml', '__fixtures__/file2.yaml')),
+    ),
+  ).toEqual(result);
+});
