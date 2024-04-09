@@ -3,7 +3,7 @@ import {resolve, extname } from 'node:path';
 import { cwd } from 'node:process';
 import getParsingData from './parsers.js';
 import buildDifference from './builldDiff.js';
-import getStylishTree from './formatters/getStyleTree.js';
+import getStylishTree from './formatters/index.js';
 
 const getAbsolutePath = (filepath) => resolve(cwd(), filepath);
 
