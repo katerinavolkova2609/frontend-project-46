@@ -45,3 +45,9 @@ test('genDiff, .json JSON', () => {
     genDiff('__fixtures__/file1.json', '__fixtures__/file2.json', 'json'),
   ).toEqual(jsonFormat);
 });
+
+test('genDiff, .yml JSON', () => {
+  expect(
+    genDiff('__fixtures__/file1.yml', '__fixtures__/file2.yml', 'json'),
+  ).toEqual(jsonFormat);
+});
