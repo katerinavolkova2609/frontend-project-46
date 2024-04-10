@@ -13,7 +13,7 @@ program
   .arguments('<filepath1, filepath2>')
   .helpOption('-h, --help', 'display help for command')
   .action((filepath1, filepath2, options) => {
-    console.log(genDiff(filepath1, filepath2, options.format));
+    console.log(genDiff(filepath1, filepath2, program.opts().format));
   });
 
 program.parse();
