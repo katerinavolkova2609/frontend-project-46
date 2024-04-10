@@ -37,3 +37,10 @@ test('genDiff, .json plain', () => {
       genDiff('__fixtures__/file1.yaml', '__fixtures__/file2.yaml', 'plain'),
     ).toEqual(result);
   });
+
+  test('genDiff, .yaml JSON', () => {
+    const result = readFile('expected.stylish.json.txt'.trim());
+    expect(
+      genDiff('__fixtures__/file1.json', '__fixtures__/file2.json', 'json'),
+    ).toEqual(result);
+  });

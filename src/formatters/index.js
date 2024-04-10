@@ -8,6 +8,9 @@ const getStylishTree = (obj, format) => {
   if (format === 'plain') {
     return doPlainFormatTree(obj);
   }
+  if (format === 'json') {
+    return JSON.stringify(obj, null, ' ');
+  }
 };
 
 export default getStylishTree;
