@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import {resolve, extname } from 'node:path';
+import { resolve, extname } from 'node:path';
 import { cwd } from 'node:process';
 import getParsingData from './parsers.js';
 import buildDifference from './builldDiff.js';
@@ -9,9 +9,7 @@ const getAbsolutePath = (filepath) => resolve(cwd(), filepath);
 
 const getFormat = (filepath) => extname(filepath);
 
-const readFile = (filepath) => {
-  return getParsingData(readFileSync(getAbsolutePath(filepath), 'utf-8'),getFormat(filepath));
-};
+const readFile = (filepath) => getParsingData(readFileSync(getAbsolutePath(filepath), 'utf-8'), getFormat(filepath));
 
 const gendiff = (filepath1, filepath2, style = 'stylish') => {
   const obj1 = readFile(filepath1);

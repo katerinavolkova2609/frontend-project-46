@@ -22,15 +22,12 @@ const buildDifference = (obj1, obj2) => {
     if (obj1[key] === obj2[key]) {
       return { key, value: obj1[key], status: 'unchanged' };
     }
-    if (
-      Object.hasOwn(obj1, key)
-      && Object.hasOwn(obj2, key)
-      && obj1[key] !== obj2[key]
-    ) {
-      return {
-        key, value: obj1[key], newValue: obj2[key], status: 'changed',
-      };
-    }
+    return {
+      key,
+      value: obj1[key],
+      newValue: obj2[key],
+      status: 'changed',
+    };
   });
   return result;
 };

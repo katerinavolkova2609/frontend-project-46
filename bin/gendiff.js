@@ -12,7 +12,7 @@ program
   .option('-f, --format [type]', 'output format')
   .arguments('<filepath1, filepath2>')
   .helpOption('-h, --help', 'display help for command')
-  .action((filepath1, filepath2, options) => {
+  .action((filepath1, filepath2) => {
     console.log(genDiff(filepath1, filepath2, program.opts().format));
   });
 

@@ -1,7 +1,6 @@
 import _ from 'lodash';
 
 const gap = ' ';
-const leftSpace = 2;
 const space = 4;
 
 const getStringOfValue = (value, depth) => {
@@ -19,9 +18,12 @@ const getStringOfValue = (value, depth) => {
 };
 
 const doStylishFormatTree = (data) => {
+  const leftSpace = 2;
   const iter = (node, depth) => {
     const replacer = gap.repeat(space * depth - leftSpace);
-    const collOfStrings = node.map(({ key, value, newValue, status }) => {
+    const collOfStrings = node.map(({
+      key, value, newValue, status,
+    }) => {
       switch (status) {
         case 'nested':
           return `${replacer}  ${key}: {\n${iter(value, depth + 1)}\n${replacer}  }`;
