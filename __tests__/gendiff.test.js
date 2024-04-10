@@ -7,40 +7,48 @@ import genDiff from '../src/index.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const getPath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
+const getPath = (filename) =>
+  path.join(__dirname, '..', '__fixtures__', filename);
 const readFile = (filename) => readFileSync(getPath(filename), 'utf-8');
 
+const stylishData = readFile('expected.stylish.txt'.trim());
+const stylishDataYaml = readFile('expected.stylish.txt'.trim());
+const plainData = readFile('expected.stylish.plain.txt'.trim());
+const plainDataYaml = readFile('expected.stylish.plain.txt'.trim());
+const jsonFormat = readFile('expected.stylish.json.txt'.trim());
+
 test('genDiff, .json', () => {
-  const result = readFile('expected.stylish.txt'.trim());
   expect(
-    genDiff('__fixtures__/file1.json', '__fixtures__/file2.json', 'stylish'),
-  ).toEqual(result);
+    genDiff('__fixtures__/file1.json', '__fixtures__/file2.json', 'stylish')
+  ).toEqual(stylishData);
 });
 
 test('genDiff, .yaml', () => {
-  const result = readFile('expected.stylish.txt'.trim());
   expect(
-    genDiff('__fixtures__/file1.yaml', '__fixtures__/file2.yaml', 'stylish'),
-  ).toEqual(result);
+    genDiff('__fixtures__/file1.yaml', '__fixtures__/file2.yaml', 'stylish')
+  ).toEqual(stylishDataYaml);
 });
 
 test('genDiff, .json plain', () => {
-    const result = readFile('expected.stylish.plain.txt'.trim());
-    expect(
-      genDiff('__fixtures__/file1.json', '__fixtures__/file2.json', 'plain'),
-    ).toEqual(result);
-  });
+  expect(
+    genDiff('__fixtures__/file1.json', '__fixtures__/file2.json', 'plain')
+  ).toEqual(plainData);
+});
 
-  test('genDiff, .yaml plain', () => {
-    const result = readFile('expected.stylish.plain.txt'.trim());
-    expect(
-      genDiff('__fixtures__/file1.yaml', '__fixtures__/file2.yaml', 'plain'),
-    ).toEqual(result);
-  });
+test('genDiff, .yaml plain', () => {
+  expect(
+    genDiff('__fixtures__/file1.yaml', '__fixtures__/file2.yaml', 'plain')
+  ).toEqual(plainDataYaml);
+});
 
-  test('genDiff, .yaml JSON', () => {
-    const result = readFile('expected.stylish.json.txt'.trim());
-    expect(
-      genDiff('__fixtures__/file1.json', '__fixtures__/file2.json', 'json'),
-    ).toEqual(result);
-  });
+test('genDiff, .json JSON', () => {
+  expect(
+    genDiff('__fixtures__/file1.json', '__fixtures__/file2.json', 'json')
+  ).toEqual(jsonFormat);
+});
+
+test('genDiff, .yml JSON', () => {
+  expect(
+    genDiff('__fixtures__/file1.yml', '__fixtures__/file2.yml', 'json')
+  ).toEqual(jsonFormat);
+});
