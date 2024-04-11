@@ -7,7 +7,7 @@ import getStylishTree from './formatters/index.js';
 
 const getAbsolutePath = (filepath) => resolve(cwd(), filepath);
 
-const getFormat = (filepath) => extname(filepath);
+const getFormat = (filepath) => extname(filepath).slice(1);
 
 const readFile = (filepath) => getParsingData(readFileSync(getAbsolutePath(filepath), 'utf-8'), getFormat(filepath));
 

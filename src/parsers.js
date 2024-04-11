@@ -2,11 +2,11 @@ import { load } from 'js-yaml';
 
 const getParsingData = (file, format) => {
   switch (format) {
-    case '.json':
+    case 'json':
       return JSON.parse(file);
-    case '.yaml':
+    case 'yaml':
       return load(file);
-    case '.yml':
+    case 'yml':
       return load(file);
     default:
       throw new Error(`Unkown format ${format}`);
